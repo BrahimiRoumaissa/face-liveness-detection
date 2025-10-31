@@ -1,0 +1,191 @@
+.face-detection-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.webcam-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.webcam {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+}
+
+.overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.result-overlay {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-width: 200px;
+}
+
+.result-overlay.real {
+  background: rgba(76, 175, 80, 0.9);
+  border: 2px solid #4caf50;
+}
+
+.result-overlay.spoof {
+  background: rgba(244, 67, 54, 0.9);
+  border: 2px solid #f44336;
+}
+
+.result-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-icon {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.result-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.confidence {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.5rem;
+}
+
+.active-check-message {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.controls-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  min-width: 300px;
+}
+
+.detect-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  min-width: 200px;
+}
+
+.detect-btn.start {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+}
+
+.detect-btn.start:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.detect-btn.stop {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+}
+
+.detect-btn.stop:hover {
+  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.status-label {
+  color: white;
+  font-weight: 500;
+}
+
+.status-value {
+  color: white;
+  font-weight: 600;
+}
+
+.status-value.connected {
+  color: #4caf50;
+}
+
+.status-value.disconnected {
+  color: #ff9800;
+}
+
+.status-value.error {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .webcam {
+    max-width: 100%;
+  }
+  
+  .result-overlay {
+    padding: 0.75rem 1rem;
+    min-width: 150px;
+  }
+  
+  .result-text {
+    font-size: 1.2rem;
+  }
+  
+  .controls-panel {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
